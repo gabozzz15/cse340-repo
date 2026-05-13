@@ -4,22 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service Projects</title>
+    <meta name="description" content="Upcoming service projects – find volunteering opportunities near you through the CSE 340 Service Network.">
+    <title><%= title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
     <%- include('partials/header') %>
-        <main>
-            <h1>ServiceProjects</h1>
-            <h2>Upcoming Service Projects</h2>
-            <ul>
-                <li>Park Cleanup - Join us to clean up local parks and make them beautiful!</li>
-                <li>Food Drive - Help collect and distribute food to those in need.</li>
-                <li>Community Tutoring - Volunteer to tutor students in various subjects.</li>
+
+    <main class="page-main">
+        <div class="page-hero">
+            <div class="container">
+                <h1 class="page-title"><%= title %></h1>
+                <p class="page-subtitle">Discover ways to get involved and serve your community.</p>
+            </div>
+        </div>
+
+        <section class="container projects-section">
+            <h2 class="section-title">Upcoming Service Projects</h2>
+            <ul class="project-list" id="serviceProjectsList">
+                <li class="project-card" id="projectParkCleanup">
+                    <div class="project-icon" aria-hidden="true">🌳</div>
+                    <div class="project-details">
+                        <h3 class="project-name">Park Cleanup</h3>
+                        <p>Join us to clean up local parks and make them beautiful for everyone to enjoy!</p>
+                    </div>
+                </li>
+                <li class="project-card" id="projectFoodDrive">
+                    <div class="project-icon" aria-hidden="true">🥫</div>
+                    <div class="project-details">
+                        <h3 class="project-name">Food Drive</h3>
+                        <p>Help collect and distribute food to those in need in our local community.</p>
+                    </div>
+                </li>
+                <li class="project-card" id="projectCommunityTutoring">
+                    <div class="project-icon" aria-hidden="true">📚</div>
+                    <div class="project-details">
+                        <h3 class="project-name">Community Tutoring</h3>
+                        <p>Volunteer to tutor students in various subjects and help them reach their potential.</p>
+                    </div>
+                </li>
             </ul>
-        </main>
-        <%- include('partials/footer') %>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
 </body>
 
 </html>

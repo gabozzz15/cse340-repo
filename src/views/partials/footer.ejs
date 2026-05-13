@@ -1,6 +1,16 @@
-<footer>
-    <p>&copy; <%= new Date().getFullYear() %> CSE 340 Service Network.</p>
-</footer>
-</body>
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>&copy; <%= new Date().getFullYear() %> CSE 340 Service Network. All rights reserved.</p>
+        </div>
+    </footer>
 
-</html>
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('is-open');
+                navToggle.setAttribute('aria-expanded', isOpen);
+            });
+        }
+    </script>

@@ -4,27 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <meta name="description" content="CSE 340 Service Network – connecting volunteers with meaningful service opportunities in their community.">
+    <title><%= title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
     <%- include('partials/header') %>
 
-        <main>
-            <h1>
-                <%= title %>
-            </h1>
+    <main class="page-main">
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title"><%= title %> – CSE 340 Service Network</h1>
+                <p class="hero-subtitle">Connecting volunteers with meaningful service opportunities in their community.</p>
+                <div class="hero-actions">
+                    <a href="/organizations" class="btn btn-primary" id="exploreOrgsBtn">Explore Organizations</a>
+                    <a href="/projects" class="btn btn-secondary" id="exploreProjectsBtn">View Projects</a>
+                </div>
+            </div>
+        </section>
 
-            <h2>Welcome to the CSE 340 Service Network!</h2>
-            <p>Our mission is to promote service across the world by connecting volunteers with service opportunities in
-                their community.</p>
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Why Volunteer With Us?</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">🌱</div>
+                        <h3>Make a Difference</h3>
+                        <p>Every hour you give creates lasting impact in your local community and beyond.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">🤝</div>
+                        <h3>Connect &amp; Collaborate</h3>
+                        <p>Meet like-minded individuals and partner with trusted service organizations.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">📈</div>
+                        <h3>Grow Your Skills</h3>
+                        <p>Gain hands-on experience and develop professional skills through service work.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <img class="main-logo" src="images/cse340-service-network.png" alt="CSE 340 Service Network Logo">
+        <section class="logo-section container">
+            <img class="main-logo" src="/images/cse340-service-network.png" alt="CSE 340 Service Network Logo">
+        </section>
+    </main>
 
-        </main>
-
-        <%- include('partials/footer') %>
+    <%- include('partials/footer') %>
 </body>
 
 </html>

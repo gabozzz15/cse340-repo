@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Service project categories – browse Environmental, Educational, Community Service, and Health &amp; Wellness opportunities.">
+    <title><%= title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <%- include('partials/header') %>
+
+    <main class="page-main">
+        <div class="page-hero">
+            <div class="container">
+                <h1 class="page-title"><%= title %></h1>
+                <p class="page-subtitle">Explore service opportunities organized by category.</p>
+            </div>
+        </div>
+
+        <section class="container categories-section">
+            <h2 class="section-title">Browse by Category</h2>
+            <ul class="category-list" id="categoryList">
+                <li class="category-card" id="categoryEnvironmental">
+                    <div class="category-icon" aria-hidden="true">🌿</div>
+                    <h3 class="category-name">Environmental</h3>
+                    <p>Projects focused on protecting and restoring our natural environment.</p>
+                </li>
+                <li class="category-card" id="categoryEducational">
+                    <div class="category-icon" aria-hidden="true">🎓</div>
+                    <h3 class="category-name">Educational</h3>
+                    <p>Initiatives that promote learning, literacy, and academic growth.</p>
+                </li>
+                <li class="category-card" id="categoryCommunityService">
+                    <div class="category-icon" aria-hidden="true">🏘️</div>
+                    <h3 class="category-name">Community Service</h3>
+                    <p>Efforts to strengthen neighborhoods and support local residents.</p>
+                </li>
+                <li class="category-card" id="categoryHealthWellness">
+                    <div class="category-icon" aria-hidden="true">💚</div>
+                    <h3 class="category-name">Health and Wellness</h3>
+                    <p>Programs dedicated to improving physical and mental well-being.</p>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+</body>
+
+</html>

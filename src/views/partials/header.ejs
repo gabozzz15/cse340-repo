@@ -1,20 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <%= title %>
-    </title>
-    <link rel="stylesheet" href="/css/main.css">
-</head>
-
-<body>
-    <nav>
-        <ul>
+    <nav class="site-nav">
+        <div class="nav-brand">
+            <a href="/" class="brand-link">CSE 340 Service Network</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
             <li><a href="/">Home</a></li>
             <li><a href="/organizations">Organizations</a></li>
             <li><a href="/projects">Projects</a></li>
+            <li><a href="/categories">Categories</a></li>
         </ul>
     </nav>
