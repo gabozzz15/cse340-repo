@@ -5,25 +5,27 @@
 
 /* ── Design Tokens ─────────────────────────────────────────── */
 :root {
-  --color-bg:        #f5f7fa;
-  --color-surface:   #ffffff;
-  --color-border:    #e2e6ed;
+  --color-bg: #f5f7fa;
+  --color-surface: #ffffff;
+  --color-border: #e2e6ed;
 
-  --color-primary:   #3b6fd4;
+  --color-primary: #3b6fd4;
   --color-primary-hover: #2f5ab5;
-  --color-accent:    #2eaa79;
+  --color-accent: #2eaa79;
 
-  --color-text:      #1a1f2e;
-  --color-text-muted:#5c6478;
+  --color-text: #1a1f2e;
+  --color-text-muted: #5c6478;
 
-  --radius:    8px;
+  --radius: 8px;
   --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.10);
   --transition: 0.2s ease;
 }
 
 /* ── Reset ──────────────────────────────────────────────────── */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -56,12 +58,15 @@ a {
   transition: color var(--transition);
 }
 
-a:hover, a:focus-visible {
+a:hover,
+a:focus-visible {
   color: var(--color-primary-hover);
   text-decoration: underline;
 }
 
-ul { list-style: none; }
+ul {
+  list-style: none;
+}
 
 /* ── Layout ─────────────────────────────────────────────────── */
 .container {
@@ -70,7 +75,9 @@ ul { list-style: none; }
   padding-inline: 1.5rem;
 }
 
-.page-main { flex: 1; }
+.page-main {
+  flex: 1;
+}
 
 /* ── Navigation ─────────────────────────────────────────────── */
 .site-nav {
@@ -114,7 +121,8 @@ ul { list-style: none; }
   transition: background var(--transition), color var(--transition);
 }
 
-.nav-links a:hover, .nav-links a:focus-visible {
+.nav-links a:hover,
+.nav-links a:focus-visible {
   background: #edf0f8;
   color: var(--color-primary);
   text-decoration: none;
@@ -135,7 +143,9 @@ ul { list-style: none; }
   transition: background var(--transition);
 }
 
-.nav-toggle:hover { background: #edf0f8; }
+.nav-toggle:hover {
+  background: #edf0f8;
+}
 
 .nav-toggle span {
   display: block;
@@ -361,8 +371,6 @@ ul { list-style: none; }
 }
 
 .project-card {
-  display: flex;
-  align-items: flex-start;
   gap: 1rem;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
@@ -455,9 +463,13 @@ ul { list-style: none; }
 
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 640px) {
-  .nav-toggle { display: flex; }
+  .nav-toggle {
+    display: flex;
+  }
 
-  .site-nav { position: relative; }
+  .site-nav {
+    position: relative;
+  }
 
   .nav-links {
     display: none;
@@ -473,18 +485,186 @@ ul { list-style: none; }
     box-shadow: var(--shadow-md);
   }
 
-  .nav-links.is-open { display: flex; }
+  .nav-links.is-open {
+    display: flex;
+  }
 
-  .nav-links a { padding: 0.6rem 0.75rem; }
+  .nav-links a {
+    padding: 0.6rem 0.75rem;
+  }
 
   .org-card {
     flex-direction: column;
     text-align: center;
   }
 
-  .org-logo { margin-inline: auto; }
+  .org-logo {
+    margin-inline: auto;
+  }
 
-  .hero-actions { flex-direction: column; align-items: center; }
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
 
-  .btn { width: 100%; max-width: 240px; text-align: center; }
+  .btn {
+    width: 100%;
+    max-width: 240px;
+    text-align: center;
+  }
+}
+
+
+/* ========================================
+   PROJECTS PAGE STYLES
+   ======================================== */
+
+.projects-section {
+  padding: 2rem 0 4rem 0;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Project Card */
+.project-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Header */
+.project-header {
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8eef2 100%);
+  padding: 1.5rem;
+  border-bottom: 3px solid #0066cc;
+}
+
+.project-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem 0;
+  color: #1a2a3a;
+  line-height: 1.3;
+}
+
+.project-organization {
+  display: inline-block;
+  background: #0066cc;
+  color: white;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+/* Card Body Sections */
+.project-purpose,
+.project-location-section,
+.project-date-section {
+  padding: 0 1.5rem;
+}
+
+.project-purpose {
+  padding-top: 1.25rem;
+}
+
+.project-location-section,
+.project-date-section {
+  padding-bottom: 0.5rem;
+}
+
+/* Section Labels */
+.section-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: #0066cc;
+  margin: 0 0 0.5rem 0;
+  display: inline-block;
+  border-left: 3px solid #0066cc;
+  padding-left: 0.6rem;
+}
+
+/* Content Text */
+.project-description {
+  color: #3a4a5a;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.project-location,
+.project-date {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #4a5a6a;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Card Footer Spacing */
+.project-card> :last-child {
+  padding-bottom: 1.5rem;
+}
+
+/* Separator between sections (opcional) */
+.project-purpose {
+  border-bottom: 1px solid #eef2f5;
+  margin-bottom: 0.75rem;
+}
+
+.project-location-section {
+  border-bottom: 1px solid #eef2f5;
+  margin-bottom: 0.75rem;
+}
+
+/* Empty state */
+.no-projects {
+  text-align: center;
+  padding: 4rem;
+  background: #f8f9fa;
+  border-radius: 16px;
+  color: #6c757d;
+  font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .project-title {
+    font-size: 1.2rem;
+  }
+
+  .project-purpose,
+  .project-location-section,
+  .project-date-section {
+    padding: 0 1rem;
+  }
+
+  .project-purpose {
+    padding-top: 1rem;
+  }
+
+  .project-card> :last-child {
+    padding-bottom: 1rem;
+  }
 }
