@@ -4,8 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Our partner organizations – CSE 340 Service Network connects you with trusted nonprofits and community groups.">
-    <title><%= title %></title>
+    <meta name="description"
+        content="Our partner organizations – CSE 340 Service Network connects you with trusted nonprofits and community groups.">
+    <title>
+        <%= title %>
+    </title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -15,51 +18,39 @@
 <body>
     <%- include('partials/header') %>
 
-    <main class="page-main">
-        <div class="page-hero">
-            <div class="container">
-                <h1 class="page-title"><%= title %></h1>
-                <p class="page-subtitle">Meet the organizations powering positive change in our communities.</p>
+        <main class="page-main">
+            <div class="page-hero">
+                <div class="container">
+                    <h1 class="page-title">
+                        <%= title %>
+                    </h1>
+                    <p class="page-subtitle">Meet the organizations powering positive change in our communities.</p>
+                </div>
             </div>
-        </div>
 
-        <section class="container org-section">
-            <ul class="org-list" id="organizationsList">
-                <li class="org-card" id="orgBrightFuture">
-                    <img src="/images/brightfuture-logo.png" alt="BrightFuture Builders logo" class="org-logo">
-                    <div class="org-info">
-                        <h2 class="org-name">BrightFuture Builders</h2>
-                        <p class="org-contact">
-                            <span class="contact-label">Contact:</span>
-                            <a href="mailto:info@brightfuture.org">info@brightfuture.org</a>
-                        </p>
-                    </div>
-                </li>
-                <li class="org-card" id="orgGreenHarvest">
-                    <img src="/images/greenharvest-logo.png" alt="GreenHarvest Growers logo" class="org-logo">
-                    <div class="org-info">
-                        <h2 class="org-name">GreenHarvest Growers</h2>
-                        <p class="org-contact">
-                            <span class="contact-label">Contact:</span>
-                            <a href="mailto:contact@greenharvest.org">contact@greenharvest.org</a>
-                        </p>
-                    </div>
-                </li>
-                <li class="org-card" id="orgUnityServe">
-                    <img src="/images/unityserve-logo.png" alt="UnityServe Volunteers logo" class="org-logo">
-                    <div class="org-info">
-                        <h2 class="org-name">UnityServe Volunteers</h2>
-                        <p class="org-contact">
-                            <span class="contact-label">Contact:</span>
-                            <a href="mailto:hello@unityserve.org">hello@unityserve.org</a>
-                        </p>
-                    </div>
-                </li>
-            </ul>
-        </section>
-    </main>
+            <section class="container org-section">
+                <ul class="org-list" id="organizationsList">
+                    <% organizations.forEach(org=> { %>
+                        <li class="org-card">
+                            <img src="/images/<%= org.logo_filename %>" alt="<%= org.name %> logo" class="org-logo">
+                            <div class="org-info">
+                                <h2 class="org-name">
+                                    <%= org.name %>
+                                </h2>
+                                <p class="org-contact">
+                                    <span class="contact-label">Contact:</span>
+                                    <a href="mailto:<%= org.contact_email %>">
+                                        <%= org.contact_email %>
+                                    </a>
+                                </p>
+                            </div>
+                        </li>
+                        <% }); %>
+                </ul>
+            </section>
+        </main>
 
-    <%- include('partials/footer') %>
+        <%- include('partials/footer') %>
 </body>
 
 </html>
