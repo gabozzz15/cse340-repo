@@ -61,3 +61,57 @@ SELECT
 FROM project p
 JOIN organization o ON p.organization_id = o.organization_id
 ORDER BY p.project_date;
+
+
+CREATE TABLE category (
+    category_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL UNIQUE
+);
+
+CREATE TABLE project_category (
+    project_id INTEGER NOT NULL,
+    category_id INTEGER NOT NULL,
+    PRIMARY KEY (project_id, category_id),
+    FOREIGN KEY (project_id) REFERENCES project(project_id) ON DELETE CASCADE,
+    FOREIGN KEY (category_id) REFERENCES category(category_id) ON DELETE CASCADE
+);
+
+INSERT INTO category (name) VALUES 
+    ('Environment'),
+    ('Children & Youth'),
+    ('Food Security'),
+    ('Education'),
+    ('Elderly Services'),
+    ('Community Development'),
+    ('Homeless Support'),
+    ('Health & Wellness');
+
+
+-- BrightFuture Builders Projects (IDs 1-5)
+INSERT INTO project_category (project_id, category_id) VALUES 
+    (1, 1),
+    (2, 2), (2, 7),
+    (3, 5), (3, 1),
+    (4, 7),
+    (5, 7)
+ON CONFLICT (project_id, category_id) DO NOTHING;
+
+-- GreenHarvest Growers Projects (IDs 6-10)
+INSERT INTO project_category (project_id, category_id) VALUES 
+    (6, 1), (6, 3),
+    (7, 3), (7, 7),
+    (8, 1), (8, 4),
+    (9, 2), (9, 1), (9, 4),
+    (10, 3), (10, 7)
+ON CONFLICT (project_id, category_id) DO NOTHING;
+
+-- UnityServe Volunteers Projects (IDs 11-15)
+INSERT INTO project_category (project_id, category_id) VALUES 
+    (11, 3),
+    (12, 6), (12, 7),
+    (13, 4), (13, 2),
+    (14, 5), (14, 3),
+    (15, 6), (15, 3)
+ON CONFLICT (project_id, category_id) DO NOTHING;
+
+
