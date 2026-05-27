@@ -35,11 +35,13 @@
                             <div class="project-card">
                                 <div class="project-header">
                                     <h2 class="project-title">
-                                        <%= project.title %>
+                                        <a href="/project/<%= project.project_id %>" class="project-title-link">
+                                            <%= project.title %>
+                                        </a>
                                     </h2>
-                                    <span class="project-organization">
+                                    <a href="/organization/<%= project.organization_id %>" class="project-organization">
                                         <%= project.organization_name %>
-                                    </span>
+                                    </a>
                                 </div>
 
                                 <div class="project-purpose">

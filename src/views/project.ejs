@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Service project details – CSE 340 Service Network.">
+    <title><%= title %> | CSE 340 Service Network</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <%- include('partials/header') %>
+
+    <main class="page-main">
+        <div class="page-hero">
+            <div class="container">
+                <h1 class="page-title"><%= title %></h1>
+                <p class="page-subtitle">Details for this service project.</p>
+            </div>
+        </div>
+
+        <section class="container project-detail-section">
+            <% if (!project) { %>
+                <p class="no-projects">Project not found.</p>
+            <% } else { %>
+
+                <div class="project-detail-card">
+
+                    <div class="project-detail-header">
+                        <h2 class="project-detail-title"><%= project.title %></h2>
+                        <a href="/organization/<%= project.organization_id %>" class="project-detail-org-link">
+                            <%= project.organization_name %>
+                        </a>
+                    </div>
+
+                    <div class="project-detail-body">
+
+                        <div class="project-detail-row">
+                            <span class="org-detail-section-title">Purpose</span>
+                            <p class="project-detail-text"><%= project.description %></p>
+                        </div>
+
+                        <div class="project-detail-row">
+                            <span class="org-detail-section-title">Location</span>
+                            <p class="project-detail-text">📍 <%= project.location %></p>
+                        </div>
+
+                        <div class="project-detail-row">
+                            <span class="org-detail-section-title">Date</span>
+                            <p class="project-detail-text">
+                                🗓 <%= new Date(project.project_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="project-detail-back">
+                    <a href="/projects" class="btn btn-secondary">← Back to Upcoming Projects</a>
+                    <a href="/organization/<%= project.organization_id %>" class="btn btn-secondary">View Organization</a>
+                </div>
+
+            <% } %>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+</body>
+
+</html>

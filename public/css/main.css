@@ -893,3 +893,109 @@ ul {
   word-break: break-word;
   overflow-x: auto;
 }
+
+/* ── Project Detail Page ─────────────────────────────────────── */
+.project-detail-section {
+  padding: 2rem 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.project-detail-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.project-detail-header {
+  padding: 1.5rem;
+  border-bottom: 3px solid var(--color-primary);
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8eef2 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.project-detail-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.project-detail-org-link {
+  display: inline-block;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  text-decoration: none;
+  width: fit-content;
+  transition: background var(--transition);
+}
+
+.project-detail-org-link:hover {
+  background: var(--color-primary-hover);
+  color: #fff;
+  text-decoration: none;
+}
+
+.project-detail-body {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.project-detail-row {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.project-detail-row:last-child {
+  border-bottom: none;
+}
+
+.project-detail-text {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-top: 0.4rem;
+}
+
+/* Project title link on the listing page */
+.project-title-link {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.project-title-link:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* Back / action links row */
+.project-detail-back {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .project-detail-back {
+    flex-direction: column;
+  }
+
+  .project-detail-back .btn {
+    width: 100%;
+    text-align: center;
+  }
+}

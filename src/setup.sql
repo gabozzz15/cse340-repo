@@ -114,4 +114,27 @@ INSERT INTO project_category (project_id, category_id) VALUES
     (15, 6), (15, 3)
 ON CONFLICT (project_id, category_id) DO NOTHING;
 
+--UPDATING PROJECTS DATE TO MAKE UPCOMING PROJECTS FUNCTION ON WEB
+UPDATE project 
+SET project_date = '2026-12-15' 
+WHERE organization_id = 1 AND title = 'Community Center Roof Repair';
 
+UPDATE project 
+SET project_date = '2027-01-20' 
+WHERE organization_id = 1 AND title = 'Affordable Housing Build';
+
+UPDATE project 
+SET project_date = '2026-11-25' 
+WHERE organization_id = 2 AND title = 'Farmers Market Setup';
+
+UPDATE project 
+SET project_date = '2026-12-05' 
+WHERE organization_id = 2 AND title = 'Harvest Festival';
+
+UPDATE project 
+SET project_date = '2027-02-10' 
+WHERE organization_id = 3 AND title = 'Senior Meal Delivery';
+
+UPDATE project 
+SET project_date = '2027-03-15' 
+WHERE organization_id = 3 AND title = 'Homeless Shelter Service';
