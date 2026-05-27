@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="View details and service projects for this partner organization – CSE 340 Service Network.">
+    <title><%= title %> | CSE 340 Service Network</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <%- include('partials/header') %>
+
+    <main class="page-main">
+        <div class="page-hero">
+            <div class="container">
+                <h1 class="page-title"><%= title %></h1>
+                <p class="page-subtitle">Details and service projects for this partner organization.</p>
+            </div>
+        </div>
+
+        <section class="container org-detail-section">
+
+            <div class="org-detail-card">
+                <div class="org-detail-header">
+                    <img
+                        src="/images/<%= organizationDetails.logo_filename %>"
+                        alt="<%= organizationDetails.name %> logo"
+                        class="org-detail-logo"
+                    >
+                    <div class="org-detail-meta">
+                        <h2 class="org-detail-name"><%= organizationDetails.name %></h2>
+                        <a href="mailto:<%= organizationDetails.contact_email %>" class="org-detail-email">
+                            <%= organizationDetails.contact_email %>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="org-detail-body">
+                    <h3 class="org-detail-section-title">About</h3>
+                    <p class="org-detail-description"><%= organizationDetails.description %></p>
+                </div>
+            </div>
+
+            <div class="org-projects-block">
+                <h3 class="section-title">Service Projects</h3>
+                <% if (projects.length === 0) { %>
+                    <p class="no-projects">No service projects are currently listed for this organization.</p>
+                <% } else { %>
+                    <ul class="org-project-list" id="orgProjectList">
+                        <% projects.forEach(project => { %>
+                            <li class="org-project-item">
+                                <a href="/project/<%= project.project_id %>" class="org-project-link">
+                                    <span class="org-project-title"><%= project.title %></span>
+                                    <% if (project.location) { %>
+                                        <span class="org-project-location">📍 <%= project.location %></span>
+                                    <% } %>
+                                    <% if (project.project_date) { %>
+                                        <span class="org-project-date">🗓 <%= new Date(project.project_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></span>
+                                    <% } %>
+                                </a>
+                            </li>
+                        <% }) %>
+                    </ul>
+                <% } %>
+            </div>
+
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+</body>
+
+</html>

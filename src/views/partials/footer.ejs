@@ -1,16 +1,20 @@
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <p>&copy; <%= new Date().getFullYear() %> CSE 340 Service Network. All rights reserved.</p>
-        </div>
-    </footer>
+<footer class="site-footer">
+    <div class="footer-inner">
+        <p>&copy; <%= new Date().getFullYear() %> CSE 340 Service Network. All rights reserved.
+                <% if (NODE_ENV==='development' ) { %>
+                    (Development mode)
+                    <% } %>
+        </p>
+    </div>
+</footer>
 
-    <script>
-        const navToggle = document.getElementById('navToggle');
-        const navLinks = document.getElementById('navLinks');
-        if (navToggle && navLinks) {
-            navToggle.addEventListener('click', () => {
-                const isOpen = navLinks.classList.toggle('is-open');
-                navToggle.setAttribute('aria-expanded', isOpen);
-            });
-        }
-    </script>
+<script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('is-open');
+            navToggle.setAttribute('aria-expanded', isOpen);
+        });
+    }
+</script>

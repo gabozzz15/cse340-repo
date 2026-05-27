@@ -668,3 +668,228 @@ ul {
     padding-bottom: 1rem;
   }
 }
+
+/* ── Organization Detail Page ───────────────────────────────── */
+.org-detail-section {
+  padding: 2rem 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.org-detail-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.org-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  background: #f8fafd;
+}
+
+.org-detail-logo {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  padding: 6px;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.org-detail-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.org-detail-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.25;
+}
+
+.org-detail-email {
+  font-size: 0.9rem;
+  color: var(--color-primary);
+}
+
+.org-detail-body {
+  padding: 1.5rem;
+}
+
+.org-detail-section-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.6rem;
+  border-left: 3px solid var(--color-primary);
+  padding-left: 0.6rem;
+}
+
+.org-detail-description {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* Projects block on the detail page */
+.org-projects-block {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem;
+}
+
+.org-project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.org-project-item {
+  border-radius: var(--radius);
+  transition: background var(--transition);
+}
+
+.org-project-link {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  background: var(--color-bg);
+  transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.org-project-link:hover {
+  background: #edf0f8;
+  box-shadow: var(--shadow-sm);
+  transform: translateX(3px);
+  text-decoration: none;
+}
+
+.org-project-title {
+  font-weight: 600;
+  color: var(--color-primary);
+  font-size: 0.95rem;
+}
+
+.org-project-location,
+.org-project-date {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 640px) {
+  .org-detail-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .org-detail-logo {
+    margin-inline: auto;
+  }
+}
+
+/* ── Error Pages ─────────────────────────────────────────────── */
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5rem 1.5rem 4rem;
+  gap: 1.25rem;
+}
+
+.error-code {
+  font-size: clamp(5rem, 15vw, 8rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--color-primary);
+  opacity: 0.15;
+}
+
+.error-code--500 {
+  color: #c0392b;
+}
+
+.error-title {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-top: -1rem;
+}
+
+.error-message {
+  max-width: 480px;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+/* Dev-only error details block */
+.error-details {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 760px;
+  background: #fff8f8;
+  border: 1px solid #f5c6cb;
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  text-align: left;
+}
+
+.error-details summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #c0392b;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  user-select: none;
+}
+
+.error-dev-badge {
+  display: inline-block;
+  background: #c0392b;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+}
+
+.error-pre {
+  margin-top: 0.75rem;
+  background: #fff;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-size: 0.8rem;
+  color: #c0392b;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-x: auto;
+}
