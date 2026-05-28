@@ -38,7 +38,9 @@
                                     <span>📁</span>
                                 </div>
                                 <h2 class="category-name">
-                                    <%= category.name %>
+                                    <a href="/category/<%= category.category_id %>" class="category-name-link">
+                                        <%= category.name %>
+                                    </a>
                                 </h2>
                                 <p class="category-description">
                                     <!-- Descripción genérica, se mejorará en W03 -->

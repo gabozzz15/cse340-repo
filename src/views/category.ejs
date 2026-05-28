@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Service category details – CSE 340 Service Network.">
+    <title><%= title %> | CSE 340 Service Network</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <%- include('partials/header') %>
+
+    <main class="page-main">
+        <div class="page-hero">
+            <div class="container">
+                <h1 class="page-title">📁 <%= title %></h1>
+                <p class="page-subtitle">Service projects in this category.</p>
+            </div>
+        </div>
+
+        <section class="container category-detail-section">
+            <% if (!category) { %>
+                <p class="no-projects">Category not found.</p>
+            <% } else { %>
+
+                <div class="category-detail-block">
+                    <h2 class="section-title">Service Projects</h2>
+
+                    <% if (projects.length === 0) { %>
+                        <p class="no-projects">No service projects are currently listed in this category.</p>
+                    <% } else { %>
+                        <ul class="org-project-list" id="categoryProjectList">
+                            <% projects.forEach(project => { %>
+                                <li class="org-project-item">
+                                    <a href="/project/<%= project.project_id %>" class="org-project-link">
+                                        <span class="org-project-title"><%= project.title %></span>
+                                        <span class="org-project-location">🏢 <%= project.organization_name %></span>
+                                        <% if (project.location) { %>
+                                            <span class="org-project-location">📍 <%= project.location %></span>
+                                        <% } %>
+                                        <% if (project.project_date) { %>
+                                            <span class="org-project-date">🗓 <%= new Date(project.project_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></span>
+                                        <% } %>
+                                    </a>
+                                </li>
+                            <% }) %>
+                        </ul>
+                    <% } %>
+                </div>
+
+                <div class="project-detail-back">
+                    <a href="/categories" class="btn btn-secondary">← Back to Categories</a>
+                </div>
+
+            <% } %>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+</body>
+
+</html>

@@ -56,6 +56,19 @@
                             </p>
                         </div>
 
+                        <% if (categories && categories.length > 0) { %>
+                        <div class="project-detail-row">
+                            <span class="org-detail-section-title">Categories</span>
+                            <div class="project-category-tags">
+                                <% categories.forEach(cat => { %>
+                                    <a href="/category/<%= cat.category_id %>" class="category-tag">
+                                        📁 <%= cat.name %>
+                                    </a>
+                                <% }) %>
+                            </div>
+                        </div>
+                        <% } %>
+
                     </div>
                 </div>
 
