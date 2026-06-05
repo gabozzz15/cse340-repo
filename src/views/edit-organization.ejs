@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Edit organization details - CSE 340 Service Network">
+    <title>Edit Organization - CSE 340 Service Network</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <%- include('partials/header') %>
+
+        <main class="page-main">
+            <section class="container">
+                <h1><%= title %></h1>
+                <form action="/edit-organization/<%= organizationDetails.organization_id %>" method="POST">
+                    <div class="form-group">
+                        <label for="name">Organization Name</label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            value="<%= organizationDetails.name %>"
+                            required
+                            maxlength="150"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea
+                            id="description"
+                            name="description"
+                            required
+                            maxlength="500"
+                        ><%= organizationDetails.description %></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Contact Email</label>
+                        <input
+                            type="email"
+                            id="contactEmail"
+                            name="contactEmail"
+                            value="<%= organizationDetails.contact_email %>"
+                            required
+                            maxlength="255"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="logoFilename">Logo Filename</label>
+                        <input
+                            type="text"
+                            id="logoFilename"
+                            name="logoFilename"
+                            value="<%= organizationDetails.logo_filename %>"
+                            required
+                            maxlength="255"
+                        >
+                    </div>
+                    <button type="submit">Update Organization</button>
+                </form>
+            </section>
+        </main>
+
+        <%- include('partials/footer') %>
+</body>
+
+</html>

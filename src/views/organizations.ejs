@@ -35,7 +35,9 @@
                             <img src="/images/<%= org.logo_filename %>" alt="<%= org.name %> logo" class="org-logo">
                             <div class="org-info">
                                 <h2 class="org-name">
-                                    <a href="/organization/<%= org.organization_id %>"><%= org.name %></a>
+                                    <a href="/organization/<%= org.organization_id %>">
+                                        <%= org.name %>
+                                    </a>
                                 </h2>
                                 <p class="org-contact">
                                     <span class="contact-label">Contact:</span>
@@ -47,6 +49,9 @@
                         </li>
                         <% }); %>
                 </ul>
+
+                <a href="/new-organization" class="btn btn-primary">Add New Organization</a>
+
             </section>
         </main>
 
