@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create New Category - CSE 340 Service Network">
+    <title>Create New Category - CSE 340 Service Network</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <%- include('partials/header') %>
+
+    <main class="page-main">
+        <section class="container">
+            <h1><%= title %></h1>
+            <form action="/new-category" method="POST">
+                <div class="form-group">
+                    <label for="name">Category Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        maxlength="100"
+                    >
+                </div>
+
+                <button type="submit" class="btn btn-primary">Create Category</button>
+            </form>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+</body>
+
+</html>
