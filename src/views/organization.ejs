@@ -46,7 +46,9 @@
                 </div>
             </div>
 
-            <p><a href="/edit-organization/<%= organizationDetails.organization_id %>">Edit Organization</a></p>
+            <% if (user && user.role_name === 'admin') { %>
+                <p><a href="/edit-organization/<%= organizationDetails.organization_id %>" class="btn btn-primary">Edit Organization</a></p>
+            <% } %>
 
             <div class="org-projects-block">
                 <h3 class="section-title">Service Projects</h3>

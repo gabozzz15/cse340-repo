@@ -55,7 +55,9 @@
 
                 <div class="project-detail-back">
                     <a href="/categories" class="btn btn-secondary">← Back to Categories</a>
-                    <a href="/edit-category/<%= category.category_id %>" class="btn btn-primary">Edit Category</a>
+                    <% if (user && user.role_name === 'admin') { %>
+                        <a href="/edit-category/<%= category.category_id %>" class="btn btn-primary">Edit Category</a>
+                    <% } %>
                 </div>
 
             <% } %>
