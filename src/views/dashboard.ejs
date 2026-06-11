@@ -31,6 +31,14 @@
                         You are logged in as <strong><%= name %></strong>. 
                         Use the navigation above to explore organizations, projects, and categories.
                     </p>
+                    
+                    <% if (user && user.role_name === 'admin') { %>
+                        <div style="margin-top: 1.5rem; border-top: 1px solid var(--color-border); padding-top: 1.5rem;">
+                            <h3 class="org-detail-section-title">Administrative Actions</h3>
+                            <p style="margin-bottom: 1rem; color: var(--color-text-muted);">As an administrator, you have access to additional features below:</p>
+                            <a href="/users" class="btn btn-primary">Manage Registered Users</a>
+                        </div>
+                    <% } %>
                 </div>
             </div>
         </section>
