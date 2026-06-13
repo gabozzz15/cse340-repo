@@ -10,7 +10,7 @@ import {
     processEditOrganizationForm,
     organizationValidation
 } from './controllers/organizations.js';
-import { showProjectsPage, showProjectDetailsPage, showNewProjectForm, processNewProjectForm, showEditProjectForm, processEditProjectForm, projectValidation } from './controllers/projects.js';
+import { showProjectsPage, showProjectDetailsPage, showNewProjectForm, processNewProjectForm, showEditProjectForm, processEditProjectForm, volunteerForProject, removeVolunteering, projectValidation } from './controllers/projects.js';
 import { showCategoriesPage, showCategoryDetailsPage, showAssignCategoriesForm, processAssignCategoriesForm, showNewCategoryForm, processNewCategoryForm, showEditCategoryForm, processEditCategoryForm, categoryValidation } from './controllers/categories.js';
 import { testErrorPage } from './controllers/errors.js';
 import { showUserRegistrationForm, processUserRegistrationForm, showLoginForm, processLoginForm, processLogout, requireLogin, showDashboard, requireRole, showUsersPage } from './controllers/users.js';
@@ -30,6 +30,11 @@ router.get('/edit-organization/:id', requireRole('admin'), showEditOrganizationF
 router.post('/edit-organization/:id', requireRole('admin'), organizationValidation, processEditOrganizationForm);
 router.get('/projects', showProjectsPage);
 router.get('/project/:id', showProjectDetailsPage);
+
+// Routes for project volunteering (protected by requireLogin)
+router.get('/project/:id/volunteer', requireLogin, volunteerForProject);
+router.get('/project/:id/remove-volunteer', requireLogin, removeVolunteering);
+
 
 // Route for new project page
 router.get('/new-project', requireRole('admin'), showNewProjectForm);

@@ -69,6 +69,20 @@
                         </div>
                         <% } %>
 
+                        <% if (isLoggedIn) { %>
+                            <div class="project-detail-row" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding-top: 1.5rem;">
+                                <% if (isVolunteering) { %>
+                                    <span class="category-tag" style="background: #d4edda; color: #155724; border-color: #c3e6cb; font-size: 0.9rem; padding: 0.4rem 1rem;">
+                                        ✓ You are volunteering for this project
+                                    </span>
+                                    <a href="/project/<%= project.project_id %>/remove-volunteer" class="btn btn-secondary">Remove Volunteering</a>
+                                <% } else { %>
+                                    <span style="font-weight: 600; color: var(--color-text-muted);">Interested in helping out?</span>
+                                    <a href="/project/<%= project.project_id %>/volunteer" class="btn btn-primary">Volunteer for this Project</a>
+                                <% } %>
+                            </div>
+                        <% } %>
+
                     </div>
                 </div>
 
